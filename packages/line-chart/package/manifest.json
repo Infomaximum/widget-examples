@@ -1,0 +1,28 @@
+{
+  "manifest_version": "1",
+  "author": "Infomaximum",
+  "guid": "e80d1607-9f60-46fe-8d28-bbe63d9f58aa",
+  "type": "widget",
+  "name": "Линейный график",
+  "systems": [
+    {
+      "name": "Widget"
+    }
+  ],
+  "description": {
+    "ru": "Линейный график представляет собой тип графика, который используется для визуализации связи или изменения значений переменных во времени или в контексте другой независимой переменной.",
+    "en": "A line graph is a type of graph that is used to visualize the relationship or change in values of variables over time or in the context of another independent variable."
+  },
+  "categories": {
+    "ru": [
+      {
+        "name": "Сторонние"
+      }
+    ],
+    "en": [
+      {
+        "name": "Other"
+      }
+    ]
+  }
+}

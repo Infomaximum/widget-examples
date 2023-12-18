@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": "off", // React 17+
+    "react/react-in-jsx-scope": "off", // React 17+
+    "react/prop-types": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

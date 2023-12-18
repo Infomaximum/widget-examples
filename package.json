@@ -1,0 +1,16 @@
+{
+  "name": "widget_examples",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "lerna": "^8.0.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
