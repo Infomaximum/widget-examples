@@ -4,7 +4,8 @@
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "lint": "lerna run lint"
   },
   "devDependencies": {
     "lerna": "^8.0.1"

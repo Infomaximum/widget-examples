@@ -64,13 +64,14 @@ class CustomWidget implements IWidget<WidgetSettings> {
     return fillSettings(settings, context);
   }
 
-  public static getDimensions(
-    settings: WidgetSettings
-  ): (IWidgetDimension | IWidgetDimensionHierarchy)[] {
+  public static getDimensions(): (
+    | IWidgetDimension
+    | IWidgetDimensionHierarchy
+  )[] {
     return [];
   }
 
-  public static getMeasures(settings: WidgetSettings): IWidgetMeasure[] {
+  public static getMeasures(): IWidgetMeasure[] {
     return [];
   }
 }
