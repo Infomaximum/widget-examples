@@ -22,14 +22,14 @@ class CustomWidget implements IWidget<WidgetSettings> {
     this.root = ReactDOM.createRoot(container);
   }
 
-  public update(
+  public mount(
     container: HTMLElement,
     props: ICustomWidgetProps<WidgetSettings>
   ) {
     this.render(props);
   }
 
-  public mount(
+  public update(
     container: HTMLElement,
     props: ICustomWidgetProps<WidgetSettings>
   ) {
