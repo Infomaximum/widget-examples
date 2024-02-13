@@ -1391,15 +1391,14 @@
     "@infomaximum/localization" "^1.0.4"
     "@types/react" "^18.0.0"
 
-"@infomaximum/custom-widget@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/custom-widget/-/custom-widget-3.7.0.tgz#09ce339db3eeefefb8d11001efd9ec87f6fcb531"
-  integrity sha512-OIJgqOKf03wzr815qeMmg0UPDskWa1TaOkQf89s74w+vbsO2oe0WMZth0x93hgSuawkv450gu7V3485YnC250Q==
+"@infomaximum/custom-widget@3.13.0-rc2":
+  version "3.13.0-rc2"
+  resolved "https://registry.yarnpkg.com/@infomaximum/custom-widget/-/custom-widget-3.13.0-rc2.tgz#336a5085bf62947dee7af12e490c130fae730c6c"
+  integrity sha512-XiKcLa7mu9hKZLjKfXsArdVAXKqzbXXr5HVQMwhHwRmhBIwpirKqkJKXBhbFDmtLJUI8RAbQcAwpvReYNME9sA==
   dependencies:
     "@infomaximum/base-filter" "^1.1.0"
     "@infomaximum/global-types" "^1.1.2"
     "@infomaximum/localization" "^1.0.4"
-    "@types/react" "^18.0.0"
 
 "@infomaximum/global-types@^1.1.2":
   version "1.1.2"
@@ -1424,10 +1423,10 @@
   dependencies:
     "@infomaximum/assert" "^1.0.0"
 
-"@infomaximum/package-cli@^1.14.0":
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-1.14.0.tgz#e91a8673d003e951547d805ceb8ae8958efc52fd"
-  integrity sha512-bHJFGgOU0WgNRcRo2dwSMGRcbppekm+9BqdcYkGjCahtPi51uRHLNeft9pXGZk9vBkpzMrczZu1KL6CDLYgjKA==
+"@infomaximum/package-cli@^1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-1.15.0.tgz#dd3e0ac363d533fd7a051da211489f2e71587a0b"
+  integrity sha512-sLEgGdLYUSxE377uj3N3qn7CTU+bd/DHK4Ei+px3QWsR/F42aaOM7nXaToQXy/zM2tQE9QHlr4FTe/x+XdOTgw==
   dependencies:
     "@babel/core" "^7.23.6"
     "@babel/plugin-transform-runtime" "^7.23.6"

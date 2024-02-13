@@ -16,7 +16,7 @@ import {
   mapDimensionsToInputs,
   replaceHierarchiesWithDimensions,
 } from "@infomaximum/custom-widget";
-import type { WidgetSettings } from "settings";
+import type { WidgetSettings } from "definition/settings";
 import { hexToRGB } from "utils";
 
 ChartJS.register(

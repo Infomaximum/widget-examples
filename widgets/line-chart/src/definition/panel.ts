@@ -5,7 +5,7 @@ import {
   EWidgetIndicatorType,
   EColorMode,
 } from "@infomaximum/custom-widget";
-import type { LegendPosition, WidgetSettings } from "settings";
+import type { LegendPosition, WidgetSettings } from "definition/settings";
 
 const legendPositionConfig = [
   {
