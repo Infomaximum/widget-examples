@@ -1423,10 +1423,10 @@
   dependencies:
     "@infomaximum/assert" "^1.0.0"
 
-"@infomaximum/package-cli@^1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-1.15.0.tgz#dd3e0ac363d533fd7a051da211489f2e71587a0b"
-  integrity sha512-sLEgGdLYUSxE377uj3N3qn7CTU+bd/DHK4Ei+px3QWsR/F42aaOM7nXaToQXy/zM2tQE9QHlr4FTe/x+XdOTgw==
+"@infomaximum/package-cli@1.16.1":
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-1.16.1.tgz#908c53806a8a2e243f0f4c907ca11519bc90b7af"
+  integrity sha512-OV1n99RTr1cSdGfTAJToHV6vyfHOtk1YxyXqPZFskBdva8/XZXfjxjDkQkWL09PXCU07uwRc3+Lvxc9mgKrK7Q==
   dependencies:
     "@babel/core" "^7.23.6"
     "@babel/plugin-transform-runtime" "^7.23.6"
