@@ -1391,10 +1391,10 @@
     "@infomaximum/localization" "^1.0.4"
     "@types/react" "^18.0.0"
 
-"@infomaximum/custom-widget@3.13.0-rc2":
-  version "3.13.0-rc2"
-  resolved "https://registry.yarnpkg.com/@infomaximum/custom-widget/-/custom-widget-3.13.0-rc2.tgz#336a5085bf62947dee7af12e490c130fae730c6c"
-  integrity sha512-XiKcLa7mu9hKZLjKfXsArdVAXKqzbXXr5HVQMwhHwRmhBIwpirKqkJKXBhbFDmtLJUI8RAbQcAwpvReYNME9sA==
+"@infomaximum/custom-widget@3.14.0":
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/custom-widget/-/custom-widget-3.14.0.tgz#c4a6f852f3f11ee873b42720d4d97f260ab8df95"
+  integrity sha512-m/SDOCncet8BUpB32+W2Z1DED7WoOJS5mLtkflRSUNqqBZXpKsSsJGFC+AzfNtbiKNHzBKbmgfPplVqxkaa6Bw==
   dependencies:
     "@infomaximum/base-filter" "^1.1.0"
     "@infomaximum/global-types" "^1.1.2"
