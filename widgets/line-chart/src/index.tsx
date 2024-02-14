@@ -6,16 +6,16 @@ import {
   type IPanelDescription,
   type ICustomWidgetProps,
   type IWidgetsContext,
-  type IWidgetMeasure,
-  type IWidgetDimension,
-  type IWidgetDimensionHierarchy,
 } from "@infomaximum/custom-widget";
 import manifest from "../manifest.json";
-import { fillSettings, type WidgetSettings } from "settings";
-import { createPanelDescription } from "panel";
+import { fillSettings, type WidgetSettings } from "definition/settings";
+import { createPanelDescription } from "definition/panel";
 import LineChart from "LineChart";
+import { Definition } from "definition/definition";
 
 class CustomWidget implements IWidget<WidgetSettings> {
+  public static definition = new Definition();
+
   root: ReactDOM.Root | null = null;
 
   public initialize(container: HTMLElement) {
@@ -50,6 +50,7 @@ class CustomWidget implements IWidget<WidgetSettings> {
     );
   }
 
+  /** @deprecated 2401 - перенесена в definition */
   public static createPanelDescription(
     context: IWidgetsContext,
     settings: WidgetSettings
@@ -57,22 +58,12 @@ class CustomWidget implements IWidget<WidgetSettings> {
     return createPanelDescription(context, settings);
   }
 
+  /** @deprecated 2401 - перенесена в definition */
   public static fillSettings(
     settings: WidgetSettings,
     context: IWidgetsContext
   ) {
     return fillSettings(settings, context);
-  }
-
-  public static getDimensions(): (
-    | IWidgetDimension
-    | IWidgetDimensionHierarchy
-  )[] {
-    return [];
-  }
-
-  public static getMeasures(): IWidgetMeasure[] {
-    return [];
   }
 }
 

@@ -11,7 +11,7 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@infomaximum/custom-widget": "^3.7.0",
+    "@infomaximum/custom-widget": "3.14.0",
     "chart.js": "^4.4.1",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -22,7 +22,7 @@
     "@babel/preset-env": "7.23.6",
     "@babel/preset-react": "7.23.3",
     "@babel/preset-typescript": "7.23.3",
-    "@infomaximum/package-cli": "^1.14.0",
+    "@infomaximum/package-cli": "^1.15.0",
     "@types/jest": "29.5.11",
     "@types/react": "18.2.43",
     "@types/react-dom": "18.2.17",
