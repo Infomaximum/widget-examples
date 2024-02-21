@@ -15,7 +15,7 @@ import {
   type ICustomWidgetProps,
   mapDimensionsToInputs,
   replaceHierarchiesWithDimensions,
-} from "@infomaximum/custom-widget";
+} from "@infomaximum/widget-sdk";
 import type { WidgetSettings } from "definition/settings";
 import { hexToRGB } from "utils";
 

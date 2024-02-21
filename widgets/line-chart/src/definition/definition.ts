@@ -6,7 +6,7 @@ import type {
   IWidgetDimension,
   IWidgetDimensionHierarchy,
   IWidgetMeasure,
-} from "@infomaximum/custom-widget";
+} from "@infomaximum/widget-sdk";
 import { fillSettings, type WidgetSettings } from "./settings";
 import { createPanelDescription } from "./panel";
 

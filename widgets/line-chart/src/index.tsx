@@ -6,7 +6,7 @@ import {
   type IPanelDescription,
   type ICustomWidgetProps,
   type IWidgetsContext,
-} from "@infomaximum/custom-widget";
+} from "@infomaximum/widget-sdk";
 import manifest from "../manifest.json";
 import { fillSettings, type WidgetSettings } from "definition/settings";
 import { createPanelDescription } from "definition/panel";

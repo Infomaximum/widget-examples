@@ -1391,24 +1391,15 @@
     "@infomaximum/localization" "^1.0.4"
     "@types/react" "^18.0.0"
 
-"@infomaximum/custom-widget@3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/custom-widget/-/custom-widget-3.14.0.tgz#c4a6f852f3f11ee873b42720d4d97f260ab8df95"
-  integrity sha512-m/SDOCncet8BUpB32+W2Z1DED7WoOJS5mLtkflRSUNqqBZXpKsSsJGFC+AzfNtbiKNHzBKbmgfPplVqxkaa6Bw==
-  dependencies:
-    "@infomaximum/base-filter" "^1.1.0"
-    "@infomaximum/global-types" "^1.1.2"
-    "@infomaximum/localization" "^1.0.4"
-
 "@infomaximum/global-types@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@infomaximum/global-types/-/global-types-1.1.2.tgz#592ba0bccf973e3026d2ae3419590e1e5c0c1d92"
   integrity sha512-y0xiOhWbuEgfbxdy7Ytol/v6E/dpwVD1QiFIhymBboQ+o3lb6hLHe7ygxOvlJ2EgYYBrN2rtsBa6RSw90E2Kmw==
 
-"@infomaximum/json-modify-webpack-plugin@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@infomaximum/json-modify-webpack-plugin/-/json-modify-webpack-plugin-1.0.1.tgz#c3d547d190a935f0c05e3d81ffc37cdd6f416d43"
-  integrity sha512-+utg/Bn7Bn9EY6Tdfu488qq6SDag4mBqW7KGYjED+OoJ9IxU9tQFHmKPKfmw2acz383ORKYrIbQOdFf8ynzl1Q==
+"@infomaximum/json-modify-webpack-plugin@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@infomaximum/json-modify-webpack-plugin/-/json-modify-webpack-plugin-1.0.2.tgz#7e36b7eb6695d6381711506eabcf2e40ad97d7e5"
+  integrity sha512-2l8J6pTXN6BRK4O+ouciKLwT4F04S/Lmdi1FkuVs7DfhxAQVLzyyJGNCN7QanICnb5ynwu1njdWGbzY+3mF2IQ==
   dependencies:
     "@types/webpack" "^5.28.3"
     detect-indent "^7.0.1"
@@ -1423,15 +1414,15 @@
   dependencies:
     "@infomaximum/assert" "^1.0.0"
 
-"@infomaximum/package-cli@1.16.1":
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-1.16.1.tgz#908c53806a8a2e243f0f4c907ca11519bc90b7af"
-  integrity sha512-OV1n99RTr1cSdGfTAJToHV6vyfHOtk1YxyXqPZFskBdva8/XZXfjxjDkQkWL09PXCU07uwRc3+Lvxc9mgKrK7Q==
+"@infomaximum/package-cli@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-1.18.0.tgz#593d4fa587066fc5d8b4b2e17424a4f2429c4209"
+  integrity sha512-8Z0VNDVad0GezLVeOL0RwioJfPpUmyv76wFa14CRurdqHqgAa+QDc3JHFfB1cutgnKYw2ciw/xJbnKguxweQGg==
   dependencies:
     "@babel/core" "^7.23.6"
     "@babel/plugin-transform-runtime" "^7.23.6"
     "@infomaximum/assert" "1.1.2"
-    "@infomaximum/json-modify-webpack-plugin" "^1.0.1"
+    "@infomaximum/json-modify-webpack-plugin" "^1.0.2"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.11"
     "@svgr/webpack" "^8.1.0"
     autoprefixer "^10.4.16"
@@ -1462,6 +1453,15 @@
     webpack-dev-server "^4.15.1"
     webpack-merge "^5.10.0"
     zip-webpack-plugin "^4.0.1"
+
+"@infomaximum/widget-sdk@3.14.0":
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-3.14.0.tgz#f4591fbd5404a981197f73754d4c894339852bdd"
+  integrity sha512-zcuWnsR8DO00sVEgGFvLM4KqtbfDcy4xsf5d047GcyX34Ap2QOzHsDtRYuJlI7mV5OQsduH1JhGEeblUrKQUEw==
+  dependencies:
+    "@infomaximum/base-filter" "^1.1.0"
+    "@infomaximum/global-types" "^1.1.2"
+    "@infomaximum/localization" "^1.0.4"
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"

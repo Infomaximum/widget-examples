@@ -5,7 +5,7 @@ import {
   type IWidgetDimension,
   type IWidgetDimensionHierarchy,
   type IWidgetMeasure,
-} from "@infomaximum/custom-widget";
+} from "@infomaximum/widget-sdk";
 import type { LayoutPosition } from "chart.js";
 
 type RemoveIndex<T> = {

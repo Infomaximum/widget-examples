@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference types="@infomaximum/global-types" />
-/// <reference types="@infomaximum/custom-widget" />
+/// <reference types="@infomaximum/widget-sdk" />
 
 declare module "*.gif" {
   const src: string;
