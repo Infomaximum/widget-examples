@@ -6,36 +6,50 @@ import {
   EColorMode,
 } from "@infomaximum/widget-sdk";
 import type { LegendPosition, WidgetSettings } from "definition/settings";
+import {
+  ABOVE,
+  ADD,
+  BELOW,
+  DIMENSION,
+  FROM_LEFT,
+  FROM_RIGHT,
+  HEADER_SIZE,
+  LEGEND,
+  LIMIT,
+  MEASURE,
+  POSITION_LEGEND,
+  SET_THE_HEADER,
+} from "localization";
 
 const legendPositionConfig = [
   {
-    label: "Сверху",
+    label: ABOVE,
     value: "top",
   },
   {
-    label: "Cнизу",
+    label: BELOW,
     value: "bottom",
   },
   {
-    label: "Слева",
+    label: FROM_LEFT,
     value: "left",
   },
   {
-    label: "Справа",
+    label: FROM_RIGHT,
     value: "right",
   },
-] satisfies { label: string; value: LegendPosition }[];
+] satisfies { label: { ru: string; en: string }; value: LegendPosition }[];
 
 export const createPanelDescription: IPanelDescriptionCreator<
   WidgetSettings,
   IGroupSettings
-> = () => ({
+> = ({ language }) => ({
   dataRecords: [
     {
       key: "header",
       accessor: "header",
       type: EControlType.input,
-      props: { isBordered: false, placeholder: "Задайте заголовок" },
+      props: { isBordered: false, placeholder: SET_THE_HEADER[language] },
     },
     { type: "divider" },
   ],
@@ -44,7 +58,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "headerSize",
       accessor: "headerSize",
       type: EControlType.inputNumber,
-      title: "Размер заголовка",
+      title: HEADER_SIZE[language],
       props: { min: 8 },
       shouldDisplay(settings) {
         return !!settings.header;
@@ -55,19 +69,19 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "legend",
       accessor: "legend",
       type: EControlType.switch,
-      title: "Легенда",
+      title: LEGEND[language],
     },
     {
       key: "legendPosition",
       accessor: "legendPosition",
       type: EControlType.select,
-      title: "Положение легенды",
+      title: POSITION_LEGEND[language],
       shouldDisplay(settings) {
         return settings.legend;
       },
       props: {
         options: legendPositionConfig.map(({ label, value }) => ({
-          label,
+          label: label[language],
           value,
         })),
       },
@@ -77,7 +91,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "limit",
       accessor: "limit",
       type: EControlType.inputNumber,
-      title: "Лимит",
+      title: LIMIT[language],
     },
     { type: "divider" },
     {
@@ -94,11 +108,11 @@ export const createPanelDescription: IPanelDescriptionCreator<
   groupSetDescriptions: {
     dimensions: {
       accessor: "dimensions",
-      title: "Разрез",
+      title: DIMENSION[language],
       maxCount: 1,
       addButtons: [
         {
-          title: "Добавить",
+          title: ADD[language],
           indicatorType: EWidgetIndicatorType.DIMENSION,
         },
       ],
@@ -106,11 +120,11 @@ export const createPanelDescription: IPanelDescriptionCreator<
 
     measures: {
       accessor: "measures",
-      title: "Мера",
+      title: MEASURE[language],
       maxCount: 1,
       addButtons: [
         {
-          title: "Добавить",
+          title: ADD[language],
           indicatorType: EWidgetIndicatorType.MEASURE,
         },
       ],
