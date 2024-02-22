@@ -4,6 +4,7 @@ import {
   EControlType,
   EWidgetIndicatorType,
   EColorMode,
+  getLocalizedText,
 } from "@infomaximum/widget-sdk";
 import type { LegendPosition, WidgetSettings } from "definition/settings";
 import {
@@ -49,7 +50,10 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "header",
       accessor: "header",
       type: EControlType.input,
-      props: { isBordered: false, placeholder: SET_THE_HEADER[language] },
+      props: {
+        isBordered: false,
+        placeholder: getLocalizedText(language, SET_THE_HEADER),
+      },
     },
     { type: "divider" },
   ],
@@ -58,7 +62,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "headerSize",
       accessor: "headerSize",
       type: EControlType.inputNumber,
-      title: HEADER_SIZE[language],
+      title: getLocalizedText(language, HEADER_SIZE),
       props: { min: 8 },
       shouldDisplay(settings) {
         return !!settings.header;
@@ -69,19 +73,19 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "legend",
       accessor: "legend",
       type: EControlType.switch,
-      title: LEGEND[language],
+      title: getLocalizedText(language, LEGEND),
     },
     {
       key: "legendPosition",
       accessor: "legendPosition",
       type: EControlType.select,
-      title: POSITION_LEGEND[language],
+      title: getLocalizedText(language, POSITION_LEGEND),
       shouldDisplay(settings) {
         return settings.legend;
       },
       props: {
         options: legendPositionConfig.map(({ label, value }) => ({
-          label: label[language],
+          label: getLocalizedText(language, label),
           value,
         })),
       },
@@ -91,7 +95,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
       key: "limit",
       accessor: "limit",
       type: EControlType.inputNumber,
-      title: LIMIT[language],
+      title: getLocalizedText(language, LIMIT),
     },
     { type: "divider" },
     {
@@ -108,11 +112,11 @@ export const createPanelDescription: IPanelDescriptionCreator<
   groupSetDescriptions: {
     dimensions: {
       accessor: "dimensions",
-      title: DIMENSION[language],
+      title: getLocalizedText(language, DIMENSION),
       maxCount: 1,
       addButtons: [
         {
-          title: ADD[language],
+          title: getLocalizedText(language, ADD),
           indicatorType: EWidgetIndicatorType.DIMENSION,
         },
       ],
@@ -120,11 +124,11 @@ export const createPanelDescription: IPanelDescriptionCreator<
 
     measures: {
       accessor: "measures",
-      title: MEASURE[language],
+      title: getLocalizedText(language, MEASURE),
       maxCount: 1,
       addButtons: [
         {
-          title: ADD[language],
+          title: getLocalizedText(language, ADD),
           indicatorType: EWidgetIndicatorType.MEASURE,
         },
       ],

@@ -1454,10 +1454,10 @@
     webpack-merge "^5.10.0"
     zip-webpack-plugin "^4.0.1"
 
-"@infomaximum/widget-sdk@3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-3.14.0.tgz#f4591fbd5404a981197f73754d4c894339852bdd"
-  integrity sha512-zcuWnsR8DO00sVEgGFvLM4KqtbfDcy4xsf5d047GcyX34Ap2QOzHsDtRYuJlI7mV5OQsduH1JhGEeblUrKQUEw==
+"@infomaximum/widget-sdk@3.15.1":
+  version "3.15.1"
+  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-3.15.1.tgz#0c3e1e9ce19ee7b8ec88e14b2551d278e19cac4b"
+  integrity sha512-TdzeTZS6U+s4V4tbH+GcsFFslrz4sLjl/DbwK/6CavBas4EFshecMBXXE8AiW5LWp5pH+grcowBMdnCvSrJMvg==
   dependencies:
     "@infomaximum/base-filter" "^1.1.0"
     "@infomaximum/global-types" "^1.1.2"
