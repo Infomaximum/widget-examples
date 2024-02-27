@@ -1,4 +1,11 @@
-import { useMemo, type FC, useEffect, useState, memo } from "react";
+import {
+  useMemo,
+  type FC,
+  useEffect,
+  useState,
+  memo,
+  useCallback,
+} from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,6 +22,9 @@ import {
   type ICustomWidgetProps,
   mapDimensionsToInputs,
   replaceHierarchiesWithDimensions,
+  ESimpleDataType,
+  ECalculatorFilterMethods,
+  getDimensionFormula,
 } from "@infomaximum/widget-sdk";
 import type { WidgetSettings } from "definition/settings";
 import { hexToRGB } from "utils";
@@ -48,7 +58,7 @@ const LineChart: FC<ILineChartProps> = ({
   const { measures, dimensions, limit, legend, legendPosition, color } =
     settings;
 
-  const filters = filtration.preparedFilterValues;
+  const { preparedFilterValues: filters, addFormulaFilter } = filtration;
 
   const [calculatorData, setCalculatorData] = useState<CalculatorData>({
     dimensionValues: [],
@@ -109,6 +119,31 @@ const LineChart: FC<ILineChartProps> = ({
     widgetsContext.variables,
   ]);
 
+  const handleAddFilter = useCallback(
+    (index: number) => {
+      const dimensionValue = calculatorData.dimensionValues.at(index);
+      const dimension = dimensions.at(0);
+
+      if (dimensionValue && dimension) {
+        const dimensionWithoutHierarchies = replaceHierarchiesWithDimensions(
+          [dimension],
+          filters
+        ).at(0);
+
+        if (dimensionWithoutHierarchies) {
+          addFormulaFilter({
+            name: dimension.name,
+            dataType: ESimpleDataType.STRING,
+            filteringMethod: ECalculatorFilterMethods.INCLUDE,
+            values: [dimensionValue],
+            formula: getDimensionFormula(dimensionWithoutHierarchies),
+          });
+        }
+      }
+    },
+    [addFormulaFilter, calculatorData.dimensionValues, dimensions, filters]
+  );
+
   const options = useMemo(
     () =>
       ({
@@ -122,8 +157,17 @@ const LineChart: FC<ILineChartProps> = ({
             display: false,
           },
         },
+        onClick(_, elements) {
+          const element = elements.find(
+            (el) => el.element instanceof PointElement
+          );
+
+          if (element) {
+            handleAddFilter(element.index);
+          }
+        },
       }) satisfies LineChartProp["options"],
-    [legend, legendPosition]
+    [handleAddFilter, legend, legendPosition]
   );
 
   const data = useMemo(
