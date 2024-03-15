@@ -1419,10 +1419,10 @@
   dependencies:
     "@infomaximum/assert" "^1.0.0"
 
-"@infomaximum/package-cli@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-2.0.0.tgz#1f2820fa3bf0da794b293c4ddb38af6c9f046d9a"
-  integrity sha512-EV/bQVBJxCcXnG1pisFmChvN9+bOxVkCoth2qBqvBy11SqT7fNkvz68b+HoIee86fn0d1Yn3MfMyzE2RofQKbw==
+"@infomaximum/package-cli@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-2.2.0.tgz#5b7d4d1de6a5ac7fe5b31746445648f6dc6d8b9a"
+  integrity sha512-RzGEZm/YV9VoXXtuy4F3Ra9ruyYl1Mmo5jvdpbJb45vryHcWR3zl1Ubk8ogJUr9toEWZ1E/VdgRFqsK/FfMz4w==
   dependencies:
     "@babel/core" "^7.23.6"
     "@babel/plugin-transform-runtime" "^7.23.6"
@@ -1460,10 +1460,10 @@
     webpack-merge "^5.10.0"
     zip-webpack-plugin "^4.0.1"
 
-"@infomaximum/widget-sdk@3.15.1":
-  version "3.15.1"
-  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-3.15.1.tgz#0c3e1e9ce19ee7b8ec88e14b2551d278e19cac4b"
-  integrity sha512-TdzeTZS6U+s4V4tbH+GcsFFslrz4sLjl/DbwK/6CavBas4EFshecMBXXE8AiW5LWp5pH+grcowBMdnCvSrJMvg==
+"@infomaximum/widget-sdk@3.19.1":
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-3.19.1.tgz#b34ed87c30b62fe9aa56467d5b95edcd458b877d"
+  integrity sha512-PbeRP3LSxyW5UHZvjgG8iUrPPDynGQ+wMrSazmO0THXI9aqmS4oV4cpoKE3GGn4wu5dGLvLzHso2JTi3FgfB7Q==
   dependencies:
     "@infomaximum/base-filter" "^1.1.0"
     "@infomaximum/global-types" "^1.1.2"

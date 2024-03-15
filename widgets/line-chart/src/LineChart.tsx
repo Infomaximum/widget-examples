@@ -32,8 +32,8 @@ ChartJS.register(
 type LineChartProp = Parameters<typeof Line>[number];
 
 type CalculatorData = {
-  dimensionValues: string[];
-  measureValues: string[];
+  dimensionValues: (string | null)[];
+  measureValues: (string | null)[];
 };
 
 interface ILineChartProps extends ICustomWidgetProps<WidgetSettings> {}
