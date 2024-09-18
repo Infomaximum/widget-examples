@@ -1,7 +1,6 @@
 {
   "$schema": "../../node_modules/@infomaximum/package-cli/schemas/widgetManifestSchema.json",
   "uuid": "a47acd45-cbfc-4d84-a449-d351553955b4",
-  "entry": "index.js",
   "api_version": 1,
   "name": {
     "en": "Line chart",

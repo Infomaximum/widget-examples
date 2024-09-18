@@ -15,6 +15,9 @@ type RemoveIndex<T> = {
 export type LegendPosition = RemoveIndex<LayoutPosition>;
 
 export interface WidgetSettings extends IBaseWidgetSettings {
+  header: string;
+
+  headerSize: number;
   limit: number;
   dimensions: (IWidgetDimension | IWidgetDimensionHierarchy)[];
   measures: IWidgetMeasure[];

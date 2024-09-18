@@ -3,6 +3,7 @@
   "manifest_version": "1",
   "author": "Infomaximum",
   "guid": "e80d1607-9f60-46fe-8d28-bbe63d9f58aa",
+  "min_version_platform": "1.0.0.0",
   "type": "widget",
   "name": "Линейный график",
   "systems": [

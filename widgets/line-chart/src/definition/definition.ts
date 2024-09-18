@@ -25,4 +25,7 @@ export class Definition implements IDefinition<WidgetSettings, IGroupSettings> {
   public getMeasures(): IWidgetMeasure[] {
     return [];
   }
+  getSortableIndicatorsKeys(): readonly (keyof WidgetSettings)[] {
+    return [];
+  }
 }
