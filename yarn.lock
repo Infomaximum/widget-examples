@@ -1396,10 +1396,10 @@
     "@infomaximum/localization" "^1.0.4"
     "@types/react" "^18.0.0"
 
-"@infomaximum/global-types@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@infomaximum/global-types/-/global-types-1.2.0.tgz#eb8c80445115aaf6a6ff221cf0c7b1194e802d4b"
-  integrity sha512-GceV28/5GBigWeMpSFLzXpEbjiHwRtvHfkS7QnxOaG9unQLRotvFCbglYsjLT34Ybw96GQyyG2mMUat6opbzWw==
+"@infomaximum/global-types@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/global-types/-/global-types-1.3.0.tgz#15e177e08e63603dfd09f5dc7a274b9dcc69c996"
+  integrity sha512-lTnbOXUv9FbcD6bRvl1OtjnfPl134OLgE71bkBnbfYe22ofF+D4Em8Dosgd/u6PaKu4mXxC1/7RAj0PEzqPBmw==
 
 "@infomaximum/json-modify-webpack-plugin@^1.1.0":
   version "1.1.0"
@@ -1419,10 +1419,10 @@
   dependencies:
     "@infomaximum/assert" "^1.0.0"
 
-"@infomaximum/package-cli@2.7.1":
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-2.7.1.tgz#31871349ea63f7b4c8d7c94d3b6e4bc4a2abb4e7"
-  integrity sha512-5Y68dpA+pBb5SrARXLcOsYDB9ql5nnwfykcwriQVXEjEAxGBK6iWaWZ14N1g+IJeZeKxW5MzPGb680YeTVDsCQ==
+"@infomaximum/package-cli@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-2.8.0.tgz#5b5d5c0bd7429e845770e626bb39cd203ce2fa8b"
+  integrity sha512-U8kXny5xkEQNpKNpA7Phxz6a+mzFKLKJ12IGF6sws0kD6DqJLXEsKr7DiowOgfvdfuQNNvzFWRF7X3t+AQ9Rvg==
   dependencies:
     "@babel/core" "^7.23.6"
     "@babel/plugin-transform-runtime" "^7.23.6"
@@ -1460,13 +1460,13 @@
     webpack-merge "^5.10.0"
     zip-webpack-plugin "^4.0.1"
 
-"@infomaximum/widget-sdk@4.0.0-beta63":
-  version "4.0.0-beta63"
-  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-4.0.0-beta63.tgz#c9897b9f253add9c7219d169d6ed2ec09292268f"
-  integrity sha512-sjkUymUB6oZc2nKZIxV6skSUQ7UOsy0QYPGSMkxpF7RtQEReNVl7Iyxc1ZBrn2MHaaIRUaVrbJD6GDNQ/RddrQ==
+"@infomaximum/widget-sdk@4.0.0-beta64":
+  version "4.0.0-beta64"
+  resolved "https://registry.yarnpkg.com/@infomaximum/widget-sdk/-/widget-sdk-4.0.0-beta64.tgz#371184431ab67300026938b7f2dc5901b2fd7a6e"
+  integrity sha512-1agz9EaqhcM4Vfa3fnZmRgrYNExa6oFKVWpjfTfzEIt5udPcDO0/q0dLD9YTcKKGsGLQwPYHRBxQE/l8OhX67g==
   dependencies:
     "@infomaximum/base-filter" "^1.1.0"
-    "@infomaximum/global-types" "^1.2.0"
+    "@infomaximum/global-types" "^1.3.0"
     "@infomaximum/localization" "^1.0.4"
 
 "@isaacs/cliui@^8.0.2":
