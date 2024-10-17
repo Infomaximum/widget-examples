@@ -15,9 +15,6 @@ type RemoveIndex<T> = {
 export type LegendPosition = RemoveIndex<LayoutPosition>;
 
 export interface WidgetSettings extends IBaseWidgetSettings {
-  header: string;
-
-  headerSize: number;
   limit: number;
   dimensions: (IWidgetDimension | IWidgetDimensionHierarchy)[];
   measures: IWidgetMeasure[];
@@ -31,8 +28,8 @@ export interface WidgetSettings extends IBaseWidgetSettings {
 }
 
 export const fillSettings: IFillSettings<WidgetSettings> = (settings) => {
-  settings.header ??= "";
-  settings.headerSize ??= 14;
+  settings.title ??= "";
+  settings.titleSize ??= 14;
   settings.limit ??= 15;
   settings.dimensions ??= [];
   settings.measures ??= [];

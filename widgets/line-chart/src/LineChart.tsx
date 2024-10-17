@@ -121,11 +121,17 @@ const LineChart: FC<ILineChartProps> = ({
             position: legendPosition,
           },
           title: {
-            display: false,
+            display: !!settings.title,
+            text: settings.title ?? "",
+            font() {
+              return {
+                size: settings.titleSize,
+              };
+            },
           },
         },
       }) satisfies LineChartProp["options"],
-    [legend, legendPosition]
+    [legend, legendPosition, settings.title, settings.titleSize]
   );
 
   const data = useMemo(
