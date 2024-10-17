@@ -47,8 +47,8 @@ export const createPanelDescription: IPanelDescriptionCreator<
 > = ({ language }) => ({
   dataRecords: [
     {
-      key: "header",
-      accessor: "header",
+      key: "title",
+      accessor: "title",
       type: EControlType.input,
       props: {
         isBordered: false,
@@ -59,13 +59,14 @@ export const createPanelDescription: IPanelDescriptionCreator<
   ],
   displayRecords: [
     {
-      key: "headerSize",
-      accessor: "headerSize",
+      key: "titleSize",
+      accessor: "titleSize",
       type: EControlType.inputNumber,
       title: getLocalizedText(language, HEADER_SIZE),
+
       props: { min: 8 },
       shouldDisplay(settings) {
-        return !!settings.header;
+        return !!settings.title;
       },
     },
     { type: "divider" },
@@ -112,6 +113,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
   groupSetDescriptions: {
     dimensions: {
       accessor: "dimensions",
+      getType: () => EWidgetIndicatorType.DIMENSION,
       title: getLocalizedText(language, DIMENSION),
       maxCount: 1,
       addButtons: [
@@ -124,6 +126,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
 
     measures: {
       accessor: "measures",
+      getType: () => EWidgetIndicatorType.MEASURE,
       title: getLocalizedText(language, MEASURE),
       maxCount: 1,
       addButtons: [

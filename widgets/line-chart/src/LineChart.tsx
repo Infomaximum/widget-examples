@@ -43,7 +43,7 @@ const LineChart: FC<ILineChartProps> = ({
   calculatorFactory,
   filtration,
   placeholder,
-  widgetsContext,
+  globalContext,
 }) => {
   const { measures, dimensions, limit, legend, legendPosition, color } =
     settings;
@@ -67,6 +67,7 @@ const LineChart: FC<ILineChartProps> = ({
   useEffect(() => {
     if (!measures?.length || !dimensions?.length) {
       placeholder.setConfigured(false);
+      placeholder.setDisplay(true);
       return;
     }
 
@@ -76,10 +77,10 @@ const LineChart: FC<ILineChartProps> = ({
       const data = await calculator.calculate({
         filters,
         limit,
-        measures: mapMeasuresToInputs(measures, widgetsContext.variables),
+        measures: mapMeasuresToInputs(measures, globalContext.variables),
         dimensions: mapDimensionsToInputs(
           replaceHierarchiesWithDimensions(dimensions, filters),
-          widgetsContext.variables
+          globalContext.variables
         ),
       });
 
@@ -94,6 +95,7 @@ const LineChart: FC<ILineChartProps> = ({
         });
       }
 
+      placeholder.setDisplay(true);
       placeholder.setError(null);
     };
 
@@ -106,7 +108,7 @@ const LineChart: FC<ILineChartProps> = ({
     measures,
     placeholder,
     placeholder.setError,
-    widgetsContext.variables,
+    globalContext.variables,
   ]);
 
   const options = useMemo(
@@ -119,11 +121,17 @@ const LineChart: FC<ILineChartProps> = ({
             position: legendPosition,
           },
           title: {
-            display: false,
+            display: !!settings.title,
+            text: settings.title ?? "",
+            font() {
+              return {
+                size: settings.titleSize,
+              };
+            },
           },
         },
       }) satisfies LineChartProp["options"],
-    [legend, legendPosition]
+    [legend, legendPosition, settings.title, settings.titleSize]
   );
 
   const data = useMemo(

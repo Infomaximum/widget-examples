@@ -3,9 +3,6 @@ import type {
   IFillSettings,
   IGroupSettings,
   IPanelDescriptionCreator,
-  IWidgetDimension,
-  IWidgetDimensionHierarchy,
-  IWidgetMeasure,
 } from "@infomaximum/widget-sdk";
 import { fillSettings, type WidgetSettings } from "./settings";
 import { createPanelDescription } from "./panel";
@@ -18,11 +15,7 @@ export class Definition implements IDefinition<WidgetSettings, IGroupSettings> {
 
   public fillSettings: IFillSettings<WidgetSettings> = fillSettings;
 
-  public getDimensions(): (IWidgetDimension | IWidgetDimensionHierarchy)[] {
-    return [];
-  }
-
-  public getMeasures(): IWidgetMeasure[] {
+  getSortableIndicatorsKeys(): readonly (keyof WidgetSettings)[] {
     return [];
   }
 }

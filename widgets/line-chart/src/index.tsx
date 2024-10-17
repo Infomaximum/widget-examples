@@ -1,15 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import {
-  type IWidget,
-  type IPanelDescription,
-  type ICustomWidgetProps,
-  type IWidgetsContext,
-} from "@infomaximum/widget-sdk";
+import { type IWidget, type ICustomWidgetProps } from "@infomaximum/widget-sdk";
 import manifest from "../manifest.json";
-import { fillSettings, type WidgetSettings } from "definition/settings";
-import { createPanelDescription } from "definition/panel";
+import { type WidgetSettings } from "definition/settings";
 import LineChart from "LineChart";
 import { Definition } from "definition/definition";
 
@@ -47,22 +41,6 @@ class CustomWidget implements IWidget<WidgetSettings> {
       </React.StrictMode>
     );
   }
-
-  /** @deprecated 2401 - перенесена в definition */
-  public static createPanelDescription(
-    context: IWidgetsContext,
-    settings: WidgetSettings
-  ): IPanelDescription<WidgetSettings> {
-    return createPanelDescription(context, settings);
-  }
-
-  /** @deprecated 2401 - перенесена в definition */
-  public static fillSettings(
-    settings: WidgetSettings,
-    context: IWidgetsContext
-  ) {
-    return fillSettings(settings, context);
-  }
 }
 
-window.im.defineWidget(manifest.uuid, CustomWidget);
+window.im.widget.defineWidget(manifest.uuid, CustomWidget);
