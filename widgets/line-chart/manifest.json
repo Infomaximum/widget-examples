@@ -7,10 +7,12 @@
     "ru": "Линейный график"
   },
   "icon": "_resources/icon.svg",
-  "default_size_percentage": {
-    "width": 60,
-    "height": 20,
-    "min_width": 8,
-    "min_height": 4
+  "default_size": {
+    "min_height": 70,
+    "min_width": 120
+  },
+  "container_params": {
+    "show_title": false,
+    "show_markdown": false
   }
 }

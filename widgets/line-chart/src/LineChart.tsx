@@ -15,6 +15,7 @@ import {
   type ICustomWidgetProps,
   mapDimensionsToInputs,
   replaceHierarchiesWithDimensions,
+  mapFormulaFiltersToInputs,
 } from "@infomaximum/widget-sdk";
 import type { WidgetSettings } from "definition/settings";
 import { hexToRGB } from "utils";
@@ -44,12 +45,8 @@ const LineChart: FC<ILineChartProps> = ({
   filtration,
   placeholder,
   globalContext,
+  widgetContainer,
 }) => {
-  const { measures, dimensions, limit, legend, legendPosition, color } =
-    settings;
-
-  const filters = filtration.preparedFilterValues;
-
   const [calculatorData, setCalculatorData] = useState<CalculatorData>({
     dimensionValues: [],
     measureValues: [],
@@ -61,25 +58,51 @@ const LineChart: FC<ILineChartProps> = ({
   );
 
   useEffect(() => {
-    placeholder.setDisplay(true);
-  }, [placeholder]);
+    // Если высота виджета не ограничена пользователем (высота "Авто")
+    if (!widgetContainer.isMaxHeightLimited) {
+      // Установка "автоматической" минимальной высоты рабочей области
+      widgetContainer.setContentMinHeight(500);
+    }
+  }, [widgetContainer]);
 
   useEffect(() => {
-    if (!measures?.length || !dimensions?.length) {
+    // Если виджет не сконфигурирован
+    if (!settings.measures.length || !settings.dimensions.length) {
+      // Сообщаем системе о том, что виджет не сконфигурирован
       placeholder.setConfigured(false);
+      // Сообщаем системе о готовности виджета к отображению в видимом состоянии
       placeholder.setDisplay(true);
+      // Очищаем предыдущую ошибку (при ее наличии)
+      placeholder.setError(null);
+
       return;
     }
 
-    placeholder.setConfigured(true);
-
     const fetchData = async () => {
+      // Игнорируем внешние фильтры, если пользователь включил данную настройку
+      const externalFilters = settings.ignoreFilters
+        ? []
+        : filtration.preparedFilterValues;
+
       const data = await calculator.calculate({
-        filters,
-        limit,
-        measures: mapMeasuresToInputs(measures, globalContext.variables),
+        // Объединяем внешние и внутренние фильтры
+        filters: [
+          ...externalFilters,
+          ...mapFormulaFiltersToInputs(settings.filters || []),
+        ],
+        limit: settings.limit,
+        // Подготавливаем меры для передачи в вычислитель
+        measures: mapMeasuresToInputs(
+          settings.measures,
+          globalContext.variables
+        ),
+        // Подготавливаем разрезы для передачи в вычислитель
         dimensions: mapDimensionsToInputs(
-          replaceHierarchiesWithDimensions(dimensions, filters),
+          // Выбираем активный разрез из "Иерархии"
+          replaceHierarchiesWithDimensions(
+            settings.dimensions,
+            externalFilters
+          ),
           globalContext.variables
         ),
       });
@@ -95,30 +118,42 @@ const LineChart: FC<ILineChartProps> = ({
         });
       }
 
+      // Данные успешно получены
+
+      // Сообщаем системе о том, что виджет сконфигурирован
+      placeholder.setConfigured(true);
+      // Сообщаем системе о готовности виджета к отображению в видимом состоянии
+      // (если нужно вычисляемое условие отображения, вместо true передавать data.isDisplay)
       placeholder.setDisplay(true);
+      // Очищаем предыдущую ошибку (при ее наличии)
       placeholder.setError(null);
     };
 
-    fetchData().catch(placeholder.setError);
+    fetchData()
+      // В случае ошибки сообщаем об этом системе
+      .catch(placeholder.setError);
   }, [
     calculator,
-    dimensions,
-    filters,
-    limit,
-    measures,
     placeholder,
     placeholder.setError,
     globalContext.variables,
+    filtration.preparedFilterValues,
+    settings.measures,
+    settings.dimensions,
+    settings.filters,
+    settings.limit,
+    settings.ignoreFilters,
   ]);
 
   const options = useMemo(
     () =>
       ({
+        maintainAspectRatio: false,
         responsive: true,
         plugins: {
           legend: {
-            display: legend,
-            position: legendPosition,
+            display: settings.legend,
+            position: settings.legendPosition,
           },
           title: {
             display: !!settings.title,
@@ -131,7 +166,12 @@ const LineChart: FC<ILineChartProps> = ({
           },
         },
       }) satisfies LineChartProp["options"],
-    [legend, legendPosition, settings.title, settings.titleSize]
+    [
+      settings.legend,
+      settings.legendPosition,
+      settings.title,
+      settings.titleSize,
+    ]
   );
 
   const data = useMemo(
@@ -140,33 +180,24 @@ const LineChart: FC<ILineChartProps> = ({
         labels: calculatorData.dimensionValues,
         datasets: [
           {
-            label: measures.at(0)?.name ?? "",
+            label: settings.measures.at(0)?.name ?? "",
             data: calculatorData.dimensionValues.map(
               (v, i) => calculatorData.measureValues[i]
             ),
-            borderColor: color.value,
-            backgroundColor: hexToRGB(color.value, 0.5),
+            borderColor: settings.color.value,
+            backgroundColor: hexToRGB(settings.color.value, 0.5),
           },
         ],
       }) satisfies LineChartProp["data"],
     [
       calculatorData.dimensionValues,
       calculatorData.measureValues,
-      color.value,
-      measures,
+      settings.color.value,
+      settings.measures,
     ]
   );
 
-  return (
-    <div>
-      <Line
-        options={options}
-        data={data}
-        width={innerWidth}
-        height={innerHeight}
-      />
-    </div>
-  );
+  return <Line options={options} data={data} />;
 };
 
 export default memo(LineChart);
