@@ -113,7 +113,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
   groupSetDescriptions: {
     dimensions: {
       accessor: "dimensions",
-      getType: () => EWidgetIndicatorType.DIMENSION,
+      getIndicatorData: () => EWidgetIndicatorType.DIMENSION,
       title: getLocalizedText(language, DIMENSION),
       maxCount: 1,
       addButtons: [
@@ -126,7 +126,7 @@ export const createPanelDescription: IPanelDescriptionCreator<
 
     measures: {
       accessor: "measures",
-      getType: () => EWidgetIndicatorType.MEASURE,
+      getIndicatorData: () => EWidgetIndicatorType.MEASURE,
       title: getLocalizedText(language, MEASURE),
       maxCount: 1,
       addButtons: [

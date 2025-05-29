@@ -68,8 +68,6 @@ const LineChart: FC<ILineChartProps> = ({
   useEffect(() => {
     // Если виджет не сконфигурирован
     if (!settings.measures.length || !settings.dimensions.length) {
-      // Сообщаем системе о том, что виджет не сконфигурирован
-      placeholder.setConfigured(false);
       // Сообщаем системе о готовности виджета к отображению в видимом состоянии
       placeholder.setDisplay(true);
       // Очищаем предыдущую ошибку (при ее наличии)
@@ -120,8 +118,6 @@ const LineChart: FC<ILineChartProps> = ({
 
       // Данные успешно получены
 
-      // Сообщаем системе о том, что виджет сконфигурирован
-      placeholder.setConfigured(true);
       // Сообщаем системе о готовности виджета к отображению в видимом состоянии
       // (если нужно вычисляемое условие отображения, вместо true передавать data.isDisplay)
       placeholder.setDisplay(true);

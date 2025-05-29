@@ -18,4 +18,8 @@ export class Definition implements IDefinition<WidgetSettings, IGroupSettings> {
   getSortableIndicatorsKeys(): readonly (keyof WidgetSettings)[] {
     return [];
   }
+
+  getLocalMigrateVersions(): string[] {
+    return [];
+  }
 }
