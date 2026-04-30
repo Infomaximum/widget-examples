@@ -1,43 +1,35 @@
 import {
+  BaseWidgetSettingsSchema,
+  ColorBaseSchema,
   EColorMode,
-  type IBaseWidgetSettings,
-  type IFillSettings,
-  type IWidgetDimension,
-  type IWidgetDimensionHierarchy,
-  type IWidgetMeasure,
+  extendWithMeta,
+  WidgetDimensionHierarchySchema,
+  WidgetDimensionInHierarchySchema,
+  WidgetDimensionSchema,
+  WidgetMeasureSchema,
+  type TSchemaType,
+  type TZod,
 } from "@infomaximum/widget-sdk";
-import type { LayoutPosition } from "chart.js";
 
-type RemoveIndex<T> = {
-  [P in keyof T as keyof any extends P ? never : P]: T[P];
-};
+const LEGEND_POSITIONS = ["top", "bottom", "left", "right"] as const;
 
-export type LegendPosition = RemoveIndex<LayoutPosition>;
+export type LegendPosition = (typeof LEGEND_POSITIONS)[number];
 
-export interface WidgetSettings extends IBaseWidgetSettings {
-  limit: number;
-  dimensions: (IWidgetDimension | IWidgetDimensionHierarchy)[];
-  measures: IWidgetMeasure[];
-  legend: boolean;
-  legendPosition: LegendPosition;
-  color: {
-    mode: EColorMode.BASE;
-    value: string;
-    defaultColor?: string;
-  };
-}
+export const WidgetSettingsSchema = (z: TZod) =>
+  extendWithMeta(BaseWidgetSettingsSchema(z), {
+    limit: z.number().default(15),
+    dimensions: z
+      .array(
+        z.union([
+          WidgetDimensionSchema(z),
+          WidgetDimensionHierarchySchema(z, WidgetDimensionInHierarchySchema(z)),
+        ])
+      )
+      .default([]),
+    measures: z.array(WidgetMeasureSchema(z)).default([]),
+    legend: z.boolean().default(false),
+    legendPosition: z.enum(LEGEND_POSITIONS).default("top"),
+    color: ColorBaseSchema(z).default({ mode: EColorMode.BASE, value: "#FF0000" }),
+  });
 
-export const fillSettings: IFillSettings<WidgetSettings> = (settings) => {
-  settings.title ??= "";
-  settings.titleSize ??= 14;
-  settings.limit ??= 15;
-  settings.dimensions ??= [];
-  settings.measures ??= [];
-  settings.legend ??= false;
-  settings.legendPosition ??= "top";
-  settings.color ??= {
-    mode: EColorMode.BASE,
-    value: "#FF0000",
-    defaultColor: "#FF0000",
-  };
-};
+export interface WidgetSettings extends TSchemaType<typeof WidgetSettingsSchema> {}
