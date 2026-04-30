@@ -1461,7 +1461,7 @@
   dependencies:
     "@infomaximum/assert" "^1.0.0"
 
-"@infomaximum/package-cli@^2.8.0":
+"@infomaximum/package-cli@^2.24.0":
   version "2.31.0"
   resolved "https://registry.yarnpkg.com/@infomaximum/package-cli/-/package-cli-2.31.0.tgz#c7a266e2ce186b930da7f82646cdd64174dce647"
   integrity sha512-4GoOYOtP+KrC1Y03TaNH50fflmpjjZNEnM0rTfQbUS/1/KyTDy6uIAurLDyU8VlPC/bHlav8qyzj60eoKvHShw==
