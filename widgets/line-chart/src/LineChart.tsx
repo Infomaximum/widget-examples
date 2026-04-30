@@ -15,7 +15,7 @@ import {
   type ICustomWidgetProps,
   mapDimensionsToInputs,
   replaceHierarchiesWithDimensions,
-  mapFormulaFiltersToInputs,
+  mapSettingsFiltersToInputs,
 } from "@infomaximum/widget-sdk";
 import type { WidgetSettings } from "definition/settings";
 import { hexToRGB } from "utils";
@@ -86,7 +86,7 @@ const LineChart: FC<ILineChartProps> = ({
         // Объединяем внешние и внутренние фильтры
         filters: [
           ...externalFilters,
-          ...mapFormulaFiltersToInputs(settings.filters || []),
+          ...mapSettingsFiltersToInputs(settings.filters),
         ],
         limit: settings.limit,
         // Подготавливаем меры для передачи в вычислитель
